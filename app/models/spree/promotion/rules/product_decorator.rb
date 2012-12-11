@@ -14,7 +14,7 @@ Spree::Promotion::Rules::Product.class_eval do
         errors[:base] << "You can't create two promotions for the same product"
       end
     else
-      if Spree::Promotion::Rules::Product.where("spree_promotion_rules.id != ?", self.id).all.map(&:products).flatten.uniq!.include?(products)
+      if Spree::Promotion::Rules::Product.where("spree_promotion_rules.id != ?", self.id).all.map(&:products).flatten.include?(products)
         errors[:base] << "You can't create two promotions for the same product"
       end
     end
