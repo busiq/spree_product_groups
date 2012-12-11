@@ -1,6 +1,6 @@
 Spree::Promotion::Rules::Product.class_eval do
   belongs_to :product_group
-  preference :group, :boolean
+  preference :group, :boolean, default: false
   attr_accessible :preferred_group
 
   def eligible_products
